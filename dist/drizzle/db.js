@@ -1,8 +1,4 @@
 "use strict";
-// import { drizzle } from "drizzle-orm/neon-http";
-// import { neon } from "@neondatabase/serverless";
-// import { config } from "dotenv";
-// import * as schema from "./schema";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -27,21 +23,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.client = void 0;
-// config({ path: ".env" });
-// export const client = neon(process.env.DATABASE_URL!);
-// export const db = drizzle(client, {schema, logger:true});
-// export default db;
-require("dotenv/config");
-const node_postgres_1 = require("drizzle-orm/node-postgres");
-const pg_1 = require("pg");
+exports.db = exports.client = void 0;
+const neon_http_1 = require("drizzle-orm/neon-http");
+const serverless_1 = require("@neondatabase/serverless");
+const dotenv_1 = require("dotenv");
 const schema = __importStar(require("./schema"));
-exports.client = new pg_1.Client({
-    connectionString: process.env.Database_URL,
-});
-const main = async () => {
-    await exports.client.connect();
-};
-main();
-const db = (0, node_postgres_1.drizzle)(exports.client, { schema, logger: true });
-exports.default = db;
+(0, dotenv_1.config)({ path: ".env" });
+exports.client = (0, serverless_1.neon)(process.env.DATABASE_URL);
+exports.db = (0, neon_http_1.drizzle)(exports.client, { schema, logger: true });
+exports.default = exports.db;
+// import "dotenv/config";
+// import { drizzle } from "drizzle-orm/node-postgres";
+// import { Client } from "pg";
+// import * as schema from "./schema";
+// export const client = new Client({
+//     connectionString: process.env.Database_URL as string,
+// })
+// const main = async () =>{
+//     await client.connect();
+// }
+// main();
+// const db = drizzle(client, {schema, logger: true})
+// export default db;

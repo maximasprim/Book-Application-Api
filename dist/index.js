@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const node_server_1 = require("@hono/node-server");
 const hono_1 = require("hono");
 require("dotenv/config");
+const books_router_1 = require("./Books/books.router");
 const app = new hono_1.Hono();
 app.get('/', (c) => {
     return c.text('Hello Hono!');
@@ -13,3 +14,4 @@ console.log(`Server is running on port ${port}`);
     fetch: app.fetch,
     port
 });
+app.route("/", books_router_1.booksRouter); //users
