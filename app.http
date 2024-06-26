@@ -1,0 +1,28 @@
+GET http://localhost:3000/
+###
+GET http://localhost:3000/books
+###
+GET http://localhost:3000/books/1
+###
+POST http://localhost:3000/books
+Content-Type: application/json
+    
+    {
+     "id":3,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald"
+    
+    }
+
+###
+PUT http://localhost:3000/books/3
+Content-Type: application/json
+    
+    {
+    "title": "The Great Gatsb",
+    "author": "F. Scott Fitzgerald"
+    
+    }
+
+###
+DELETE http://localhost:3000/books/3
