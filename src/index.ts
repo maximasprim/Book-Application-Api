@@ -4,8 +4,12 @@ import "dotenv/config";
 import { HTTPException } from 'hono/http-exception';
 import { type Context } from "hono";
 import { booksRouter } from "./Books/books.router";
+import { cors } from 'hono/cors';
+
 
 const app = new Hono()
+//enable cors
+app.use(cors());
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
