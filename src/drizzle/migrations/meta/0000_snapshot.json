@@ -1,5 +1,5 @@
 {
-  "id": "4bfdfea4-31e5-4b26-850e-5aa6a6d90619",
+  "id": "8fff864b-c40f-4d43-a757-33abb6676459",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -26,12 +26,11 @@
           "primaryKey": false,
           "notNull": false
         },
-        "published_at": {
-          "name": "published_at",
-          "type": "timestamp",
+        "year": {
+          "name": "year",
+          "type": "varchar(4)",
           "primaryKey": false,
-          "notNull": false,
-          "default": "now()"
+          "notNull": false
         }
       },
       "indexes": {},
