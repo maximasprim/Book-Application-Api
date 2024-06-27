@@ -36,7 +36,7 @@ importers:
         specifier: 0.0.1-security
         version: 0.0.1-security
       hono:
-        specifier: ^4.4.2
+        specifier: ^4.4.8
         version: 4.4.8
       node-cron:
         specifier: ^3.0.3
