@@ -22,7 +22,7 @@ export const createBooksService = async (book: TIBooks): Promise<TIBooks> => {
 
 export const updateBooksService = async (id: number, book: TIBooks) => {
     await db.update(booksTable).set(book).where(eq(booksTable.id, id))
-    return "Book updated successfully";
+    return book;
 }
 
 export const deleteBooksService = async (id: number) => {

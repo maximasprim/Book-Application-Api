@@ -31,7 +31,7 @@ export const createBook = async (c: Context) => {
    if (!createdBook){
     return c.text("Book not created!", 404)
    }
-    return c.json({msg: createdBook}, 201);
+    return c.json(createdBook, 201);
 } catch (error: any){
     return c.json({error: error?.message}, 400)
 }
@@ -53,7 +53,7 @@ export const updateBook = async (c: Context) => {
   //return the updated user
   if (!res )
     return c.text("book not updated!", 404); 
-    return c.json({msg: res}, 201);
+    return c.json(res, 201);
 
 } catch (error: any){
     return c.json({error: error?.message}, 400)
