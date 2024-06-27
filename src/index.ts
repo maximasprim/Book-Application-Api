@@ -13,6 +13,12 @@ const app = new Hono()
 app.use(cors());
 app.use('*', cors());
 
+app.use(cors({
+  origin: '*',
+  allowMethods : ['GET','POST','PUT','DELETE','OPTIONS'],
+  allowHeaders : ['Content-Type','Authorization'],
+}));
+
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
